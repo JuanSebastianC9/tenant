@@ -1,0 +1,10 @@
+# local-sc.yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: local-hostpath
+provisioner: microk8s.io/hostpath
+reclaimPolicy: Retain
+parameters:
+  pvDir: /home/jsc/local-sc/
+volumeBindingMode: WaitForFirstConsumer
