@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: registry-service
 spec:
+  selector: 
+    run: registry
   type: ClusterIP
   ports:
     - name: registry-tcp
