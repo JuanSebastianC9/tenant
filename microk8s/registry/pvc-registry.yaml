@@ -2,8 +2,9 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: registry-data-pvc
-storageClassName: local-hostpath
-accessModes: [ReadWriteOnce]
+spec:
+  storageClassName: "local-hostpath"
+  accessModes: [ReadWriteOnce]
   resources:
     requests:
       storage: 15Gi

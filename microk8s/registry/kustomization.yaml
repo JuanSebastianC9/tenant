@@ -4,6 +4,6 @@ kind: Kustomization
 namespace: docker-registry
 
 bases:
-  - ./pvc-registry.yaml
-  - ./svc-registry.yaml
-  - ./deployment-registry.yaml
+  - pvc-registry.yaml
+  - svc-registry.yaml
+  - deployment-registry.yaml
