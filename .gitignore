@@ -1,2 +1,2 @@
-~/wsl-code/microk8s/certs/registry.crt
-~/wsl-code/microk8s/certs/registry.key
+certs/registry.crt
+certs/registry.key
