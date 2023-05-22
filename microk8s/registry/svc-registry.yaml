@@ -4,8 +4,8 @@ metadata:
   name: registry-service
 spec:
   type: ClusterIP
-ports:
-  - name: registry-tcp
-    protocol: TCP
-    port: 5000
-    targetPort: 5000
+  ports:
+    - name: registry-tcp
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
