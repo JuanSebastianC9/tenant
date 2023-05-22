@@ -9,3 +9,5 @@ spec:
       protocol: TCP
       port: 5000
       targetPort: 5000
+  externalIPs:
+  - 172.29.56.193
