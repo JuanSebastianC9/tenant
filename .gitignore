@@ -1,2 +1,2 @@
-./microk8s/certs/*.crt
-./microk8s/certs/*.key
+/microk8s/certs/*.crt
+/microk8s/certs/*.key
