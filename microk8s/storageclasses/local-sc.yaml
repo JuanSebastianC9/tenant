@@ -6,5 +6,5 @@ metadata:
 provisioner: microk8s.io/hostpath
 reclaimPolicy: Retain
 parameters:
-  pvDir: /home/jsc/local-sc/
+  pvDir: /root/jsc/local-sc/
 volumeBindingMode: WaitForFirstConsumer
