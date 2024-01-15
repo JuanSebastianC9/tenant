@@ -5,7 +5,7 @@ metadata:
 spec:
   selector: 
     run: registry
-  type: NodePort
+  type: ClusterIP
   ports:
     - name: registry-tcp
       protocol: TCP
