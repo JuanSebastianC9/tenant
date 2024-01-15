@@ -20,10 +20,10 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
+  persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /mnt/f/Microk8s/LocalStorage/PVC
+    path: /mnt/f/Microk8s/LocalStorage/PVC/registry
   nodeAffinity:
     required:
       nodeSelectorTerms:
