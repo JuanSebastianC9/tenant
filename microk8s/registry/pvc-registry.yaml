@@ -23,7 +23,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /mnt/f/Microk8s/LocalStorage/PVC/registry
+    path: /mnt/f/Microk8s/LocalStorage/PVC
   nodeAffinity:
     required:
       nodeSelectorTerms:
