@@ -4,16 +4,17 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
     nginx.ingress.kubernetes.io/proxy-body-size: '0'
+    #nginx.ingress.kubernetes.io/rewrite-target: '/'
   name: nginx-ingress
   namespace: docker-registry
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-      - localhost
+      - registry.internal
     secretName: registry-cert
   rules:
-  - host: localhost
+  - host: registry.internal
     http:
       paths:
       - path: /
