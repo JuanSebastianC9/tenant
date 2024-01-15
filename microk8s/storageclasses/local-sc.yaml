@@ -2,9 +2,6 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: local-hostpath
-provisioner: microk8s.io/hostpath
-reclaimPolicy: Retain
-parameters:
-  pvDir: /root/jsc/local-sc/
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer

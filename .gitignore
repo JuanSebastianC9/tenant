@@ -1,2 +1,1 @@
-certs/registry.crt
-certs/registry.key
+microk8s/certs/*
