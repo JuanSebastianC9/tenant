@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: docker-registry
 
 resources:
-  #- pvc-registry.yaml
-  - ingress.yaml
+  - pvc-registry.yaml
+  #- ingress.yaml
   - svc-registry.yaml
   - deployment-registry.yaml
