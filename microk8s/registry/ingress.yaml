@@ -11,10 +11,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-      - registry.internal
+      - localhost
     secretName: registry-cert
   rules:
-  - host: registry.internal
+  - host: localhost
     http:
       paths:
       - path: /
