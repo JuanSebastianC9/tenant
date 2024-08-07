@@ -17,7 +17,7 @@ spec:
       - name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
         command: [
-          "cloudflared", "tunnel", "--no-tls-verify", "--url", "http://10.152.183.124:8080"
+          "cloudflared", "tunnel", "--no-tls-verify", "--url", "http://10.152.183.124:8080", "--api-key=${CLOUDFLARE_API_KEY}"
           ]
         # env:
         # - name: CF_API_TOKEN
@@ -25,6 +25,18 @@ spec:
         #     secretKeyRef:
         #       name: cloudflare-token
         #       key: token
+        env:
+        - name: CLOUDFLARE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-api-key
+              key: CLOUDFLARE_API_KEY
+        volumeMounts:
+        - name: cloudflare-api-key
+          mountPath: /etc/cloudflare/api-key
       volumes:
         - name: config-volume
           emptyDir: {}
+        - name: cloudflare-api-key
+          secret:
+            secretName: cloudflare-api-key
