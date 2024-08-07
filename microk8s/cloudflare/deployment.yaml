@@ -14,15 +14,15 @@ spec:
         app: cloudflare-tunnel
     spec:
       containers:
-      - name: cloudflare-tunnel
-        image: cloudflare/cloudflared:latest
       - command:
         - cloudflared
         - tunnel
         - run
-      - args:
+        args:
         - --token
         - "${CLOUDFLARE_TOKEN}"
+        name: cloudflare-tunnel
+        Image: cloudflare/cloudflared:latest
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
