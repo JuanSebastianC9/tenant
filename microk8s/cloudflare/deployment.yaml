@@ -34,7 +34,4 @@ spec:
           valueFrom:
             secretKeyRef:
               name: cloudflare-api-key
-              key: CLOUDFLARE_TOKEN
-      volumes:
-      - name: config-volume
-        emptyDir: {}
+              key: CLOUDFLARE_API-KEY
