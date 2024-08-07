@@ -16,9 +16,15 @@ spec:
       containers:
       - name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
-        command: [
-          "cloudflared", "tunnel", "--no-tls-verify", "--url", "http://10.152.183.124:8080", "token", "${CLOUDFLARE_API_KEY}"
-          ]
+        - command:
+          - cloudflared
+          - tunnel
+          # In a k8s environment, the metrics server needs to listen outside the pod it runs on. 
+          # The address 0.0.0.0:2000 allows any pod in the namespace.
+          - run
+          args:
+          - --token
+          - "${CLOUDFLARE_TOKEN}"
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
@@ -26,17 +32,8 @@ spec:
         #       name: cloudflare-token
         #       key: token
         env:
-        - name: CLOUDFLARE_API_KEY
+        - name: CLOUDFLARE_TOKEN
           valueFrom:
             secretKeyRef:
               name: cloudflare-api-key
-              key: CLOUDFLARE_API_KEY
-        volumeMounts:
-        - name: cloudflare-api-key
-          mountPath: /etc/cloudflare/api-key
-      volumes:
-        - name: config-volume
-          emptyDir: {}
-        - name: cloudflare-api-key
-          secret:
-            secretName: cloudflare-api-key
+              key: CLOUDFLARE_TOKEN
