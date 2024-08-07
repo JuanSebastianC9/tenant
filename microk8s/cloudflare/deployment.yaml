@@ -17,7 +17,7 @@ spec:
       - name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
         command: [
-          "cloudflared", "tunnel", "--url", "http://10.152.183.124:8080"
+          "cloudflared", "tunnel", "--url", "--no-tls-verify", "http://10.152.183.124:8080"
           ]
         # env:
         # - name: CF_API_TOKEN
