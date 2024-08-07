@@ -20,14 +20,17 @@ spec:
       - name: cloudflare-tunnel
         # image: cloudflare/cloudflared:latest
         image: amd64/ubuntu:latest
-        command: ["/bin/bash"]
-        args: ["-c", "printenv", "TUNNEL_KEY"]
+        command: ["/bin/bash"] 
+        args: ["-c", "printenv"]
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
         #     secretKeyRef:
         #       name: cloudflare-token
         #       key: token
-        envFrom:
-          - secretRef:
-                name: cloudflare-token
+        env:
+        - name: TUNNEL_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-token
+              key: TUNNEL_TOKEN
