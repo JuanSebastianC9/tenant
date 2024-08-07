@@ -20,7 +20,7 @@ spec:
           - cloudflared
           - tunnel
           - run
-          args:
+        - args:
           - --token
           - "${CLOUDFLARE_TOKEN}"
         # env:
