@@ -16,13 +16,13 @@ spec:
       containers:
       - name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
-        - command:
-          - cloudflared
-          - tunnel
-          - run
-        - args:
-          - --token
-          - "${CLOUDFLARE_API_KEY}"
+      - command:
+        - cloudflared
+        - tunnel
+        - run
+      - args:
+        - --token
+        - "${CLOUDFLARE_API_KEY}"
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
