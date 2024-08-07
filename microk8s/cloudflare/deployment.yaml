@@ -27,9 +27,6 @@ spec:
         #     secretKeyRef:
         #       name: cloudflare-token
         #       key: token
-        env:
-        - name: TUNNEL_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: cloudflare-token
-              key: TUNNEL_TOKEN
+        envFrom:
+          - secretRef:
+                name: cloudflare-token
