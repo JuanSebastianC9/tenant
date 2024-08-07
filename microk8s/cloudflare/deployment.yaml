@@ -17,7 +17,7 @@ spec:
       - command: [
         "cloudflared", "tunnel", "--no-autoupdate=true", "run", "--token", "$TUNNEL_TOKEN"
       ]
-      - name: cloudflare-tunnel
+        name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
         # env:
         # - name: CF_API_TOKEN
