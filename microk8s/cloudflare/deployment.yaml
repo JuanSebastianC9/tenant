@@ -19,7 +19,7 @@ spec:
         command: ["/bin/bash"]
         args: [
           "-c",
-          "apt update; mkdir -p --mode=0755 /usr/share/keyrings; echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' | tee /etc/apt/sources.list.d/cloudflared.list; apt-get update && apt-get install cloudflared; cloudflared tunnel --url http://10.152.183.124:8080 my-tunnel;"
+          "apt update; mkdir -p --mode=0755 /usr/share/keyrings; echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' | tee /etc/apt/sources.list.d/cloudflared.list; apt-get update && apt-get install cloudflared; source ~/.bashrc; cloudflared tunnel --url http://10.152.183.124:8080 my-tunnel;"
           ]
         # env:
         # - name: CF_API_TOKEN
