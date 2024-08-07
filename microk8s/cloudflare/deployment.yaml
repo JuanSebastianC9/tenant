@@ -29,5 +29,5 @@ spec:
         - name: TUNNEL_TOKEN
           valueFrom:
             secretKeyRef:
-              name: cloudflare-api-key
-              key: CLOUDFLARE_API_KEY
+              name: cloudflare-token
+              key: TUNNEL_TOKEN
