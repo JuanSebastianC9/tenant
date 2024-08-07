@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: cloudflare-tunnel
-        image: ubuntu:18.04
+        image: amd64/ubuntu:latest
         command: ["/bin/bash"]
         args: [
           "-c",
