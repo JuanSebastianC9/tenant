@@ -20,6 +20,8 @@ spec:
         - run
         args:
         - --token
+        - "$CLOUDFLARE_TOKEN;"
+        - "echo"
         - "$CLOUDFLARE_TOKEN"
         name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
