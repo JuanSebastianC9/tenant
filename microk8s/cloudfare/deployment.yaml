@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-tunnel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-tunnel
+  template:
+    metadata:
+      labels:
+        app: cloudflare-tunnel
+    spec:
+      containers:
+      - name: cloudflare-tunnel
+        image: cloudflare/cloudflared:latest
+        command: ["cloudflared", "tunnel", "--url", "http://my-app-service:80", "my-tunnel"]
+        # env:
+        # - name: CF_API_TOKEN
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: cloudflare-token
+        #       key: token
+        securityContext:
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+      volumes:
+        - name: config-volume
+          emptyDir: {}

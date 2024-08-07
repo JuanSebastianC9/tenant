@@ -1,29 +1,36 @@
 package main
 
 import (
-    "html/template"
     "net/http"
+
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
-    http.HandleFunc("/", mainHandler)
-    http.HandleFunc("/info", infoHandler)
-    http.HandleFunc("/contact", contactHandler)
-    http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-    http.ListenAndServe(":8080", nil)
-}
+    r := gin.Default()
 
-func mainHandler(w http.ResponseWriter, r *http.Request) {
-    t, _ := template.ParseFiles("templates/main.html")
-    t.Execute(w, nil)
-}
+    r.LoadHTMLGlob("templates/*") // Load HTML templates from the "templates" folder
 
-func infoHandler(w http.ResponseWriter, r *http.Request) {
-    t, _ := template.ParseFiles("templates/info.html")
-    t.Execute(w, nil)
-}
+    r.GET("/", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "home.html", gin.H{
+            "title": "Welcome to the Home Page!",
+        })
+    })
 
-func contactHandler(w http.ResponseWriter, r *http.Request) {
-    t, _ := template.ParseFiles("templates/contact.html")
-    t.Execute(w, nil)
+    r.GET("/projects", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "projects.html", gin.H{
+            "title": "Projects",
+            "info": "This is a list of our exciting projects.",
+        })
+    })
+
+    r.GET("/contact", func(c *gin.Context) {
+        c.HTML(http.StatusOK, "contact.html", gin.H{
+            "title": "Contact Us",
+            "email": "info@example.com",
+            "phone": "123-456-7890",
+        })
+    })
+
+    r.Run() // Listen and serve
 }
