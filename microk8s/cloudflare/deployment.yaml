@@ -27,10 +27,6 @@ spec:
         #     secretKeyRef:
         #       name: cloudflare-token
         #       key: token
-        securityContext:
-          capabilities:
-            drop:
-            - ALL
         resources:
           requests:
             memory: "64Mi"
