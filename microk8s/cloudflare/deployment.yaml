@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - command: [
-        "echo", "${CLOUDFLARE_TOKEN};", "cloudflared", "tunnel", "run", "--token", "${CLOUDFLARE_TOKEN};"
+        "cloudflared", "tunnel", "run", "--token", "${CLOUDFLARE_TOKEN};"
       ]
         name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
