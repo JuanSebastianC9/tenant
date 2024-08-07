@@ -20,7 +20,7 @@ spec:
       - name: cloudflare-tunnel
         # image: cloudflare/cloudflared:latest
         image: amd64/ubuntu:latest
-        command: ["/bin/bash", "-c", "printenv;", "export", "TUNNEL_TOKEN;", "echo", "$TUNNEL_TOKEN"]
+        command: ["/bin/bash", "-c", "echo", "$( printenv TUNNEL_TOKEN)"]
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
