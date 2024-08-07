@@ -16,7 +16,7 @@ spec:
       containers:
       - name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
-        command: ["cloudflared", "tunnel", "--url", "http://my-app-service:80", "my-tunnel"]
+        command: ["cloudflared", "tunnel", "--url", "http://10.152.183.124:8080", "my-tunnel"]
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
