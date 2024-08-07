@@ -14,10 +14,9 @@ spec:
         app: cloudflare-tunnel
     spec:
       containers:
-      - command: [
-        "cloudflared", "tunnel", "--no-autoupdate=true", "run", "--token", "$TUNNEL_TOKEN"
-      ]
-      - name: cloudflare-tunnel
+      - command: ["cloudflared"]
+        args: ["tunnel", "--no-autoupdate=true", "run", "--token", "$TUNNEL_TOKEN"]
+        name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
         # image: amd64/ubuntu:latest
         # env:
