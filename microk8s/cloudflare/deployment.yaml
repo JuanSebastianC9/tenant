@@ -22,7 +22,7 @@ spec:
         - --token
         - "${CLOUDFLARE_TOKEN}"
         name: cloudflare-tunnel
-        Image: cloudflare/cloudflared:latest
+        image: cloudflare/cloudflared:latest
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
