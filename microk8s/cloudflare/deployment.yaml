@@ -20,7 +20,7 @@ spec:
         - run
         args:
         - --token
-        - "${CLOUDFLARE_TOKEN}"
+        - "$CLOUDFLARE_TOKEN"
         name: cloudflare-tunnel
         image: cloudflare/cloudflared:latest
         # env:
