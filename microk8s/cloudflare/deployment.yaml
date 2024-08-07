@@ -22,7 +22,7 @@ spec:
         - run
       - args:
         - --token
-        - "${CLOUDFLARE_API_KEY}"
+        - "${CLOUDFLARE_TOKEN}"
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
@@ -30,7 +30,7 @@ spec:
         #       name: cloudflare-token
         #       key: token
         env:
-        - name: CLOUDFLARE_API_KEY
+        - name: CLOUDFLARE_TOKEN
           valueFrom:
             secretKeyRef:
               name: cloudflare-api-key
