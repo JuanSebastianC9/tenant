@@ -14,14 +14,12 @@ spec:
         app: cloudflare-tunnel
     spec:
       containers:
-      # - command: [
-      #   "cloudflared", "tunnel", "--no-autoupdate=true", "run", "--token", "$TUNNEL_TOKEN"
-      # ]
+      - command: [
+        "cloudflared", "tunnel", "--no-autoupdate=true", "run", "--token", "$TUNNEL_TOKEN"
+      ]
       - name: cloudflare-tunnel
-        # image: cloudflare/cloudflared:latest
-        image: amd64/ubuntu:latest
-        command: ["/bin/bash"] 
-        args: ["-c", "printenv;", "export", "TUNNEL_KEY;", "/bin/bash", "-c", "echo", "TEST_$(TUNNEL_KEY)"]
+        image: cloudflare/cloudflared:latest
+        # image: amd64/ubuntu:latest
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
