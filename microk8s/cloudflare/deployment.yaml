@@ -34,3 +34,4 @@ spec:
             secretKeyRef:
               name: cloudflare-token
               key: TUNNEL_TOKEN
+      restartPolicy: Never
