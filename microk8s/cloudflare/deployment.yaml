@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
       - name: cloudflare-tunnel
-        image: amd64/ubuntu:latest
-        command: ["/bin/bash"]
-        args: [
-          "-c",
-          "apt update; mkdir -p --mode=0755 /usr/share/keyrings; echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' | tee /etc/apt/sources.list.d/cloudflared.list; apt-get update && apt-get install cloudflared; source ~/.bashrc; cloudflared tunnel --url http://10.152.183.124:8080 my-tunnel;"
+        image: cloudflare/cloudflared:latest
+        command: [
+          "sysctl", "-w", "net.core.rmem_max=7500000;", 
+          "sysctl", "-w", "net.core.wmem_max=7500000;",
+          "cloudflared", "tunnel", "--url", "http://10.152.183.124:8080", "my-tunnel"
           ]
         # env:
         # - name: CF_API_TOKEN
@@ -27,14 +27,6 @@ spec:
         #     secretKeyRef:
         #       name: cloudflare-token
         #       key: token
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
       volumes:
         - name: config-volume
           emptyDir: {}
-      
