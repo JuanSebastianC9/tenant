@@ -34,4 +34,4 @@ spec:
           valueFrom:
             secretKeyRef:
               name: cloudflare-api-key
-              key: CLOUDFLARE_API-KEY
+              key: CLOUDFLARE_API_KEY
