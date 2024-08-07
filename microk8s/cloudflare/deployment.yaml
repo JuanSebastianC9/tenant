@@ -21,7 +21,7 @@ spec:
         # image: cloudflare/cloudflared:latest
         image: amd64/ubuntu:latest
         command: ["/bin/bash"]
-        args: ["-c", "echo", "$(printenv)"]
+        args: ["-c", "printenv", "TUNNEL_KEY"]
         # env:
         # - name: CF_API_TOKEN
         #   valueFrom:
