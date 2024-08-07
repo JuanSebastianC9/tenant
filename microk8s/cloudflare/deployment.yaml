@@ -27,7 +27,6 @@ spec:
           capabilities:
             drop:
             - ALL
-          runAsNonRoot: true
       volumes:
         - name: config-volume
           emptyDir: {}
